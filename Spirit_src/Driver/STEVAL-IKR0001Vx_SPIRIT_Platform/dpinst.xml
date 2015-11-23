@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<dpInst>
+        <dpinstTitle>SPIRIT drivers Installer</dpinstTitle>
+    
+        <welcomeTitle>Welcome to the SPIRIT drivers Installer!</welcomeTitle>
+        <welcomeIntro>This wizard will walk you through updating the drivers for your SPIRIT Device.</welcomeIntro>
+
+        <installHeaderTitle>Installing the software for your SPIRIT device driver...</installHeaderTitle>
+
+        <finishTitle>Congratulations! You are finished installing your SPIRIT drivers.</finishTitle>
+        <finishText>Enjoy using the SPIRIT device.</finishText>
+    <enableNotListedLanguages/> 
+    <legacyMode/>
+    <deleteBinaries/>
+    <forceIfDriverIsNotBetter/>
+    <suppressAddRemovePrograms/>
+    <quietInstallStrict/>
+</dpInst>

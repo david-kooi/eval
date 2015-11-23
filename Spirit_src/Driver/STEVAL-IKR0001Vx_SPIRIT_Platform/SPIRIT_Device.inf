@@ -1,0 +1,75 @@
+ ;------------------------------------------------------------------------------
+; STMicroelectronics Comunication Device Class driver (CDC) INF FILE
+; (C)2011 Copyright STMicroelectronics
+;------------------------------------------------------------------------------
+
+[Version]
+Signature="$Windows NT$"
+Class=Ports
+ClassGuid={4D36E978-E325-11CE-BFC1-08002BE10318}
+Provider=%MANUFACTURER%
+LayoutFile=layout.inf
+;CatalogFile=%FILENAME%.cat
+
+DriverVer=05/10/2011,1.0.0.0
+
+[Manufacturer]
+%MANUFACTURER%=DeviceList,NTamd64
+
+[DestinationDirs]
+DefaultDestDir=12
+
+
+;------------------------------------------------------------------------------
+;              Windows 2000/XP/Vista32 Support
+;------------------------------------------------------------------------------
+[DriverInstall.NT]
+include=mdmcpq.inf
+CopyFiles=FakeModemCopyFileSection
+AddReg=LowerFilterAddReg
+
+[DriverInstall.NT.Services]
+include=mdmcpq.inf
+AddService=usbser, 0x00000002, LowerFilter_Service_Inst 
+
+
+;------------------------------------------------------------------------------
+;              Windows Vista64 Support
+;------------------------------------------------------------------------------
+[DriverInstall.NTamd64]
+include=mdmcpq.inf
+CopyFiles=FakeModemCopyFileSection
+AddReg=LowerFilterAddReg
+
+
+[DriverInstall.NTamd64.Services]
+include=mdmcpq.inf
+AddService=usbser, 0x00000002, LowerFilter_Service_Inst 
+
+
+;------------------------------------------------------------------------------
+;            VID/PID Settings
+;------------------------------------------------------------------------------
+[SourceDisksFiles]
+
+[SourceDisksNames]
+1=%INSTDISK%,,,
+
+[DeviceList]
+%DESCRIPTION%=DriverInstall,USB\VID_0483&PID_7016
+
+[DeviceList.NTamd64]
+%DESCRIPTION%=DriverInstall,USB\VID_0483&PID_7016
+
+
+;------------------------------------------------------------------------------
+;              String Definitions
+;------------------------------------------------------------------------------
+[Strings]
+FILENAME="SPIRIT_Device"
+DRIVERFILENAME ="usbser"
+MANUFACTURER="STMicroelectronics"
+SERVICE="USB IKR0001Vx SPIRIT Platforms"
+INSTDISK="STEVAL-IKR0001Vx SPIRIT DISK"
+DESCRIPTION="STEVAL-IKR0001Vx SPIRIT Platform"
+
